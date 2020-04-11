@@ -25,7 +25,7 @@ public class T0005_longest_palindromic_substring {
         // 最长回文串的终点
         int maxEnd = 0;
         // 最长回文串的长度
-        int maxLen = 1;  
+        int maxLen = 1;
 
         boolean[][] dp = new boolean[strLen][strLen];
 
