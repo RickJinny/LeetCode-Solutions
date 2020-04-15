@@ -20,5 +20,8 @@ package com.rickjinny;
  */
 public class T0008_string_to_integer_atoi {
 
+    public int myAtoi(String str) {
 
+        return 0;
+    }
 }
