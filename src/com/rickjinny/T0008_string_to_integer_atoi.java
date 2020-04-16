@@ -29,12 +29,12 @@ public class T0008_string_to_integer_atoi {
             idx++;
         }
         if (idx == n) {
-            //去掉前导空格以后到了末尾了
+            // 去掉前导空格以后到了末尾了
             return 0;
         }
         boolean negative = false;
         if (chars[idx] == '-') {
-            //遇到负号
+            // 遇到负号
             negative = true;
             idx++;
         } else if (chars[idx] == '+') {
