@@ -46,7 +46,20 @@ package com.rickjinny;
  */
 public class T0012_integer_to_roman {
 
+    private String[] charMap = new String[]{"I","IV","V","IX","X","XL","L","XC","C","CD","D","CM","M"};
+    private int[] intMap = new int[]{1,4,5,9,10,40,50,90,100,400,500,900,1000};
+
     public String intToRoman(int num) {
-        return null;
+        StringBuilder sb = new StringBuilder();
+        int index = charMap.length - 1;
+        while (num > 0) {
+            if (num - intMap[index] >= 0) {
+                sb.append(charMap[index]);
+                num -= intMap[index];
+            } else {
+                index--;
+            }
+        }
+        return sb.toString();
     }
 }
