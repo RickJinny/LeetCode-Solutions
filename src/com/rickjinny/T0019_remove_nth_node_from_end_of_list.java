@@ -13,7 +13,19 @@ package com.rickjinny;
 public class T0019_remove_nth_node_from_end_of_list {
 
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        return null;
+        ListNode pre = new ListNode(0);
+        pre.next = head;
+        ListNode start = pre, end = pre;
+        while(n != 0) {
+            start = start.next;
+            n--;
+        }
+        while(start.next != null) {
+            start = start.next;
+            end = end.next;
+        }
+        end.next = end.next.next;
+        return pre.next;
     }
     
     public class ListNode {
