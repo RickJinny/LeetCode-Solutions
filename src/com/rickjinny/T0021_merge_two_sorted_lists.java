@@ -11,6 +11,16 @@ package com.rickjinny;
  */
 public class T0021_merge_two_sorted_lists {
 
-    
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        return null;
+    }
 
-}
+    public class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int x) {
+            val = x;
+        }
+    }
+ }
