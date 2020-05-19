@@ -1,4 +1,4 @@
-package com.rickjinny;
+package com.rickjinny.leetcode;
 
 /**
  * 5、最长回文子串

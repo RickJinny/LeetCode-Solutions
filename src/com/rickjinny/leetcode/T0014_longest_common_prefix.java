@@ -1,4 +1,4 @@
-package com.rickjinny;
+package com.rickjinny.leetcode;
 
 /**
  * 14、最长公共前缀

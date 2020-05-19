@@ -1,4 +1,4 @@
-package com.rickjinny;
+package com.rickjinny.leetcode;
 
 /**
  * 2、两数相加

@@ -1,4 +1,4 @@
-package com.rickjinny;
+package com.rickjinny.leetcode;
 
 import java.util.ArrayList;
 import java.util.List;

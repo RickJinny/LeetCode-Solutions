@@ -1,4 +1,4 @@
-package com.rickjinny;
+package com.rickjinny.leetcode;
 
 /**
  * 4、寻找两个有序数组的中位数
