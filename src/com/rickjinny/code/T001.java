@@ -9,7 +9,7 @@ import java.util.Map;
  * 分类：Array, HashTable
  * 算法：题目说明了数组中一定有解，且解唯一，所以用哈希表记录已遍历的元素即可。
  */
-public class T01 {
+public class T001 {
 
     public static int[] twoSum(int[] nums, int target) {
         // 定义一个 Map 集合
