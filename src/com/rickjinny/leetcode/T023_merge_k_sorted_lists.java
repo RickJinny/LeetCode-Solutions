@@ -1,5 +1,8 @@
 package com.rickjinny.leetcode;
 
+import java.util.PriorityQueue;
+import java.util.Queue;
+
 /**
  * 23、合并 K 个排序链表
  * 合并 k 个排序链表，返回合并后的排序链表。请分析和描述算法的复杂度。
@@ -18,7 +21,23 @@ package com.rickjinny.leetcode;
 public class T023_merge_k_sorted_lists {
 
     public ListNode mergeKLists(ListNode[] lists) {
-        return null;
+        Queue<ListNode> pq = new PriorityQueue<>((v1, v2) -> v1.val - v2.val);
+        for (ListNode node : lists) {
+            if (node != null) {
+                pq.offer(node);
+            }
+        }
+        ListNode dummyHead = new ListNode(0);
+        ListNode tail = dummyHead;
+        while (!pq.isEmpty()) {
+            ListNode minNode = pq.poll();
+            tail.next = minNode;
+            tail = minNode;
+            if (minNode.next != null) {
+                pq.offer(minNode.next);
+            }
+        }
+        return dummyHead.next;
     }
 
     public class ListNode {
