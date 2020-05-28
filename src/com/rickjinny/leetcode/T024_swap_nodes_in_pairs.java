@@ -10,7 +10,22 @@ package com.rickjinny.leetcode;
 public class T024_swap_nodes_in_pairs {
 
     public ListNode swapPairs(ListNode head) {
-        return null;
+        // 输入校验
+        if (head == null || head.next == null)
+            return head;
+        ListNode ans = head.next; // 新链表的起点
+        ListNode currNode = head; // 当前节点，每次落在一对节点的前一个节点上
+        ListNode lastNode = head; // 上一个节点，每次落在完成交换后的一对节点的后一个节点上。
+        // 遍历 最后还会余下一个lastNode的next指向没有得到更正
+        while (currNode != null && currNode.next != null) {
+            ListNode nextNode = currNode.next.next;// 每次两步
+            currNode.next.next = currNode;
+            lastNode.next = currNode.next; // 在第一对中，这个操作无意义，head.next下轮中还会被改变。
+            lastNode = currNode;
+            currNode = nextNode;
+        }
+        lastNode.next = currNode;
+        return ans;
     }
 
      public class ListNode {
