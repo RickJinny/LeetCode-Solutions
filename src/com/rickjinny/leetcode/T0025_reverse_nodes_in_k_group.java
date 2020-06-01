@@ -1,7 +1,5 @@
 package com.rickjinny.leetcode;
 
-import java.util.List;
-
 /**
  * 25、 K 个一组翻转链表
  * 给你一个链表，每 k 个节点一组进行翻转，请你返回翻转后的链表。
@@ -19,11 +17,42 @@ import java.util.List;
 public class T0025_reverse_nodes_in_k_group {
 
     public ListNode reverseKGroup(ListNode head, int k) {
-        
+        // 空想的 pre 节点(接在头节点之前)
+        ListNode preNode = new ListNode(Integer.MIN_VALUE);
+        preNode.next = head;
+        // 用于记录头节点返回
+        ListNode hairNode = preNode;
 
+        // 初始化 tail, 代表每个小段链表的末尾
+        ListNode tailNode = preNode;
+        ListNode startNode;
+        ListNode nextNode;
+        //遍历链表
+        while (tailNode.next != null) {
+            // 移动 tailNode 到小段链表末尾
+            for (int i = 0; i < k && tailNode != null; i++) {
+                tailNode = tailNode.next;
+            }
 
+            if (tailNode == null) {
+                break;
+            }
 
-        return null;
+            // 设置 nextNode
+            nextNode = tailNode.next;
+            // 设置 startNode 为起始
+            startNode = preNode.next;
+            // 断开链表
+            tailNode.next = null;
+            // 反转链表
+            preNode.next = reverse(startNode);
+            // 接上链表末尾, 此时 startNode 为反转后链表的末尾
+            startNode.next = nextNode;
+            // 移动指针寻找下一段链表
+            preNode = startNode; // 此时 startNode 已经是当前逆序链表的末尾
+            tailNode = preNode; // 移动末尾为 preNode 下一次继续根据 k 移动 tailNode
+        }
+        return hairNode.next;
     }
 
     /**
