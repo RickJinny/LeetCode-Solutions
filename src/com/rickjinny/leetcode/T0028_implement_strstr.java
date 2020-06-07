@@ -18,7 +18,18 @@ package com.rickjinny.leetcode;
  */
 public class T0028_implement_strstr {
 
-    public int strStr(String haystack, String needle) {
-        return 0;
+    public static int strStr(String haystack, String needle) {
+        int L = needle.length();
+        int n = haystack.length();
+        for (int i = 0; i < n - L + 1; i++) {
+            if (haystack.substring(i, i + L).equals(needle)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(strStr("hello", "ll"));
     }
 }
