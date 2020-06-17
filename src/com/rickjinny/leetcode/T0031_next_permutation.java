@@ -1,5 +1,7 @@
 package com.rickjinny.leetcode;
 
+import java.util.Arrays;
+
 /**
  * 31、下一个排列
  * 实现获取下一个排列的函数，算法需要将给定数字序列重新排列成字典序中下一个更大的排列。
@@ -14,6 +16,26 @@ package com.rickjinny.leetcode;
 public class T0031_next_permutation {
 
     public void nextPermutation(int[] nums) {
-        
+        int len = nums.length;
+        if (len <= 1) {
+            return;
+        }
+
+        for (int i = len - 2; i >= 0; i--) {
+            if (nums[i] < nums[i + 1]) {
+                int swap = i + 1;
+                for (int j = i + 1; j < len; j++) {
+                    if (nums[j] > nums[i] && nums[j] < nums[swap]) {
+                        swap = j;
+                    }
+                }
+                int tmp = nums[i];
+                nums[i] = nums[swap];
+                nums[swap] = tmp;
+                Arrays.sort(nums, i + 1, len);
+                return;
+            }
+        }
+        Arrays.sort(nums);
     }
 }
