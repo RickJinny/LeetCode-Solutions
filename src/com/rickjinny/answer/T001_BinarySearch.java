@@ -5,7 +5,7 @@ package com.rickjinny.answer;
  */
 public class T001_BinarySearch {
 
-    public int binarySearch(int[] arr, int target) {
+    public static int binarySearch(int[] arr, int target) {
         // 定义 [left, right], 在此范围内寻找 target
         int left = 0;
         int right = arr.length - 1;
@@ -25,5 +25,10 @@ public class T001_BinarySearch {
         }
         // 没有的话，直接返回 -1
         return -1;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {13, 1100, 2291};
+        System.out.println(binarySearch(arr, 1100));
     }
 }
