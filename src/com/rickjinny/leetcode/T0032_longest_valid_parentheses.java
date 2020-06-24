@@ -1,5 +1,7 @@
 package com.rickjinny.leetcode;
 
+import java.util.Stack;
+
 /**
  * 32、最长有效括号
  * 给定一个只包含 '(' 和 ')' 的字符串，找出最长的包含有效括号的子串的长度。
@@ -18,6 +20,21 @@ package com.rickjinny.leetcode;
 public class T0032_longest_valid_parentheses {
 
     public int longestValidParentheses(String s) {
-        return 0;
+        int maxAns = 0;
+        Stack<Integer> stack = new Stack<>();
+        stack.push(-1);
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '(') {
+                stack.push(i);
+            } else {
+                stack.pop();
+                if (stack.empty()) {
+                    stack.push(i);
+                } else {
+                    maxAns = Math.max(maxAns, i - stack.peek());
+                }
+            }
+        }
+        return maxAns;
     }
 }
