@@ -7,7 +7,7 @@ package com.rickjinny.leetcode;
  *
  * 示例: 给定 1->2->3->4, 你应该返回 2->1->4->3
  */
-public class T024_swap_nodes_in_pairs {
+public class T0024_swap_nodes_in_pairs {
 
     public ListNode swapPairs(ListNode head) {
         // 输入校验

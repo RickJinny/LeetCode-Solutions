@@ -18,7 +18,7 @@ import java.util.Queue;
  * 输出: 1->1->2->3->4->4->5->6
  *
  */
-public class T023_merge_k_sorted_lists {
+public class T0023_merge_k_sorted_lists {
 
     public ListNode mergeKLists(ListNode[] lists) {
         Queue<ListNode> pq = new PriorityQueue<>((v1, v2) -> v1.val - v2.val);
