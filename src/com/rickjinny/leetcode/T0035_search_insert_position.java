@@ -24,7 +24,7 @@ package com.rickjinny.leetcode;
  */
 public class T0035_search_insert_position {
 
-    public int searchInsert1(int[] nums, int target) {
+    public int searchInsert01(int[] nums, int target) {
         int length = nums.length;
         if (length == 0) {
             return 0;
@@ -41,6 +41,32 @@ public class T0035_search_insert_position {
                 left = mid + 1;
             } else {
                 // 下一轮搜索的区间是 [left, mid]
+                right = mid;
+            }
+        }
+        return left;
+    }
+
+    public int searchInsert02(int[] nums, int target) {
+        int len = nums.length;
+        if (len == 0) {
+            return 0;
+        }
+        // 特判
+        if (nums[len - 1] < target) {
+            return len;
+        }
+
+        int left = 0;
+        int right = len - 1;
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            // 严格小于 target 的元素一定不是解
+            if (nums[mid] < target) {
+                // 下一轮搜索区间是 [mid + 1, right]
+                left = mid + 1;
+            } else {
+                // 下一轮搜索区别是 [left, mid]
                 right = mid;
             }
         }
