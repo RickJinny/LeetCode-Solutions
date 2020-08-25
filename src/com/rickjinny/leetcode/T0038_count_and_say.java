@@ -28,6 +28,6 @@ package com.rickjinny.leetcode;
 public class T0038_count_and_say {
 
     public static void main(String[] args) {
-        
+
     }
 }
