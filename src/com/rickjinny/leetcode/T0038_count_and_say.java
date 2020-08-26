@@ -32,7 +32,6 @@ public class T0038_count_and_say {
         if (n == 1) {
             return "1";
         }
-
         StringBuffer res = new StringBuffer();
         // 拿到上一层的字符串
         String str = countAndSay(n - 1);
@@ -53,9 +52,5 @@ public class T0038_count_and_say {
             }
         }
         return res.toString();
-    }
-
-    public static void main(String[] args) {
-
     }
 }
