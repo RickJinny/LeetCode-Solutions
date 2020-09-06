@@ -18,4 +18,7 @@ package com.rickjinny.leetcode;
  */
 public class T0041_first_missing_positive {
 
+    public int firstMissingPositive(int[] nums) {
+        return 0;
+    }
 }
