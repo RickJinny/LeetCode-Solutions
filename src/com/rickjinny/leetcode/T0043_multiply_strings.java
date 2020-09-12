@@ -20,6 +20,7 @@ package com.rickjinny.leetcode;
 public class T0043_multiply_strings {
 
     public String multiply(String num1, String num2) {
+        
         return null;
     }
 }
