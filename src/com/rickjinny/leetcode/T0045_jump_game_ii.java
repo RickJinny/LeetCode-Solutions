@@ -16,4 +16,8 @@ public class T0045_jump_game_ii {
     public int jump(int[] nums) {
         return 0;
     }
+
+    public static void main(String[] args) {
+        
+    }
 }
