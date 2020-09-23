@@ -13,6 +13,12 @@ package com.rickjinny.leetcode;
 public class T0053_maximum_subarray {
 
     public int maxSubArray(int[] nums) {
-        return 0;
+        int pre = 0;
+        int maxAns = nums[0];
+        for (int num : nums) {
+            pre = Math.max(pre + num, num);
+            maxAns = Math.max(maxAns, pre);
+        }
+        return maxAns;
     }
 }
