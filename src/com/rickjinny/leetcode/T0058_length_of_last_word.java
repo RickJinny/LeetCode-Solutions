@@ -12,7 +12,7 @@ package com.rickjinny.leetcode;
 public class T0058_length_of_last_word {
 
     public int lengthOfLastWord(String s) {
-        
+
         return 0;
     }
 }
