@@ -19,6 +19,18 @@ package com.rickjinny.leetcode;
 public class T0066_plus_one {
 
     public int[] plusOne(int[] digits) {
-        return null;
+        int len = digits.length - 1;
+        for (int i = len; i >= 0; i--) {
+            if (digits[i] == 9) {
+                digits[i] = 0;
+            } else {
+                digits[i] += 1;
+                return digits;
+            }
+        }
+        // 如果所有位都是进位，则长度+1
+        digits = new int[digits.length + 1];
+        digits[0] = 1;
+        return digits;
     }
 }
