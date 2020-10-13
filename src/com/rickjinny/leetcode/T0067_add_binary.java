@@ -21,6 +21,7 @@ package com.rickjinny.leetcode;
 public class T0067_add_binary {
 
     public String addBinary(String a, String b) {
+
         return null;
     }
 }
