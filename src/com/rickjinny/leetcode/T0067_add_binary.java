@@ -21,6 +21,26 @@ package com.rickjinny.leetcode;
 public class T0067_add_binary {
 
     public String addBinary(String a, String b) {
+        int i = a.length() - 1;
+        int j = b.length() - 1;
+        int carry = 0;
+        StringBuilder builder = new StringBuilder();
+        // 循环相加两个字符串相同长度的低位数部分
+        while (i >= 0 && j >= 0) {
+            int sum = carry;
+            sum += a.charAt(i--) - '0';
+            sum += b.charAt(j--) - '0';
+            carry = sum / 2;
+            builder.append(sum % 2);
+        }
+
+        // 如果 a 还没遍历完成（a串比b串长），则继续遍历添加 a 的剩余部分
+        while (i > 0) {
+            int sum = carry + a.charAt(i--) - '0';
+            carry = sum / 2;
+            builder.append(sum % 2);
+        }
+
 
         return null;
     }
