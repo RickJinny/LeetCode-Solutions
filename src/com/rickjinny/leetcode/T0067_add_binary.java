@@ -42,6 +42,6 @@ public class T0067_add_binary {
         }
 
 
-        return null;
+        return builder.toString();
     }
 }
