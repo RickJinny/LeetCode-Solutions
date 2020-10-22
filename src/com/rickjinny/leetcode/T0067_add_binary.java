@@ -41,7 +41,19 @@ public class T0067_add_binary {
             builder.append(sum % 2);
         }
 
+        // 如果 b 还没遍历完成（b串比a串长），则继续遍历添加 b 的剩余部分
+        while (j >= 0) {
+            int sum = carry + b.charAt(j--) - '0';
+            carry = sum / 2;
+            builder.append(sum % 2);
+        }
 
-        return builder.toString();
+        // 如果 carry 不等于 0 还有个进位数，没有进去，需要补充
+        if (carry == 1) {
+            builder.append(carry);
+        }
+
+        // 反转字符串获取正常结果
+        return builder.reverse().toString();
     }
 }
