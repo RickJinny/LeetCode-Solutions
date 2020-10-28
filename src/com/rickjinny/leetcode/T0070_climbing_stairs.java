@@ -20,8 +20,11 @@ package com.rickjinny.leetcode;
  * 1.  1 阶 + 1 阶 + 1 阶
  * 2.  1 阶 + 2 阶
  * 3.  2 阶 + 1 阶
- * 
+ *
  */
 public class T0070_climbing_stairs {
 
+    public int climbStairs(int n) {
+        return 0;
+    }
 }
