@@ -15,7 +15,18 @@ package com.rickjinny.leetcode;
 public class T0083_remove_duplicates_from_sorted_list {
 
     public ListNode deleteDuplicates(ListNode head) {
-        return null;
+        ListNode current = head;
+        while (current != null && current.next != null) {
+            if (current.next.val == current.val) {
+                ListNode node = current.next;
+                current.next = node.next;
+                // 清除野指针
+                node.next = null;
+            } else {
+                current = current.next;
+            }
+        }
+        return head;
     }
 
     static class ListNode {
