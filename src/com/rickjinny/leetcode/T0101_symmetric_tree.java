@@ -8,7 +8,17 @@ package com.rickjinny.leetcode;
 public class T0101_symmetric_tree {
 
     public boolean isSymmetric(TreeNode root) {
-        return false;
+        return check(root, root);
+    }
+
+    private boolean check(TreeNode p, TreeNode q) {
+        if (p == null && q == null) {
+            return true;
+        }
+        if (p == null || q == null) {
+            return false;
+        }
+        return p.val == q.val && check(p.left, q.right) && check(p.right, q.left);
     }
 
     private static class TreeNode {
