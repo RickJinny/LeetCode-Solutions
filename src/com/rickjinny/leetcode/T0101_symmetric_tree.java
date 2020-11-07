@@ -10,8 +10,8 @@ public class T0101_symmetric_tree {
     public boolean isSymmetric(TreeNode root) {
         return false;
     }
-    
-    public class TreeNode {
+
+    private static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
