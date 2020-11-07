@@ -7,8 +7,16 @@ package com.rickjinny.leetcode;
  */
 public class T0100_same_tree {
 
-    public boolean isSameTree() {
-        
+    public boolean isSameTree(TreeNode p, TreeNode q) {
+        if (p == null && q == null) {
+            return true;
+        } else if (p == null || q == null) {
+            return false;
+        } else if (p.val != q.val) {
+            return false;
+        } else {
+            return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+        }
     }
 
     public class TreeNode {
@@ -16,9 +24,7 @@ public class T0100_same_tree {
         TreeNode left;
         TreeNode right;
 
-        TreeNode() {
-
-        }
+        TreeNode() {}
 
         public TreeNode(int val) {
             this.val = val;
