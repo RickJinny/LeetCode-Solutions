@@ -1,5 +1,8 @@
 package com.rickjinny.leetcode;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * 104、二叉树的最大深度
  * 给定一个二叉树，找出其最大深度。
@@ -16,7 +19,28 @@ package com.rickjinny.leetcode;
 public class T0104_maximum_depth_of_binary_tree {
 
     public int maxDepth(TreeNode root) {
-        return 0;
+        if (root == null) {
+            return 0;
+        }
+
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        queue.offer(root);
+        int ans = 0;
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            while (size > 0) {
+                TreeNode node = queue.poll();
+                if (node.left != null) {
+                    queue.offer(node.left);
+                }
+                if (node.right != null) {
+                    queue.offer(node.right);
+                }
+                size--;
+            }
+            ans++;
+        }
+        return ans;
     }
 
     private static class TreeNode {
