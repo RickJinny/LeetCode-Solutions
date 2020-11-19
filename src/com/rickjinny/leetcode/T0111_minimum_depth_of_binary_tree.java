@@ -45,4 +45,8 @@ public class T0111_minimum_depth_of_binary_tree {
 
         }
     }
+
+    public static void main(String[] args) {
+        
+    }
 }
