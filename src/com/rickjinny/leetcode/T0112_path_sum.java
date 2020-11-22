@@ -1,5 +1,8 @@
 package com.rickjinny.leetcode;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * 112、路径总和
  * 给定一个二叉树和一个目标和，判断该树中是否存在根节点到叶子节点的路径，
@@ -20,6 +23,32 @@ package com.rickjinny.leetcode;
 public class T0112_path_sum {
 
     public boolean hasPathSum(TreeNode root, int sum) {
+        if (root == null) {
+            return false;
+        }
+
+        Queue<TreeNode> queNode = new LinkedList<>();
+        Queue<Integer> queVal = new LinkedList<>();
+        queNode.offer(root);
+        queVal.offer(root.value);
+        while (!queNode.isEmpty()) {
+            TreeNode now = queNode.poll();
+            Integer temp = queVal.poll();
+            if (now.left == null && now.right == null) {
+                if (temp == sum) {
+                    return true;
+                }
+                continue;
+            }
+            if (now.left != null) {
+                queNode.offer(now.left);
+                queVal.offer(now.left.value + temp);
+            }
+            if (now.right != null) {
+                queNode.offer(now.right);
+                queVal.offer(now.right.value + temp);
+            }
+        }
         return false;
     }
 
