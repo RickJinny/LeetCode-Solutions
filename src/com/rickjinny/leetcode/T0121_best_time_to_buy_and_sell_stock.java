@@ -19,7 +19,22 @@ package com.rickjinny.leetcode;
  */
 public class T0121_best_time_to_buy_and_sell_stock {
 
+    /**
+     * 思路：
+     * 1、记录今天之前买入的最小值。
+     * 2、计算今天之前最小值买入，今天卖出的获利，也即今天卖出的最大获利。
+     * 3、比较每天的最大获利，取最大值即可。
+     */
     public int maxProfit(int[] prices) {
-        return 0;
+        if (prices.length <= 1) {
+            return 0;
+        }
+        int min = prices[0];
+        int max = 0;
+        for (int i = 0; i < prices.length; i++) {
+            max = Math.max(max, prices[i] - min);
+            min = Math.min(min, prices[i]);
+        }
+        return max;
     }
 }
