@@ -22,6 +22,28 @@ package com.rickjinny.leetcode;
 public class T0122_best_time_to_buy_and_sell_stock_ii {
 
     public int maxProfit(int[] prices) {
-        return 0;
+        int maxProfit = 0;
+        int buyPrice = 0;
+        boolean isBuy = false;
+        for (int i = 0, j = 1; i < prices.length - 1; i++, j++) {
+            // 买入
+            if (prices[i] < prices[j] && !isBuy) {
+                buyPrice = prices[i];
+                isBuy = true;
+            }
+
+            // 卖出
+            if (prices[i] > prices[j] && isBuy) {
+                maxProfit += prices[i] - buyPrice;
+                buyPrice = 0;
+                isBuy = false;
+            }
+        }
+
+        // 最后判断是否需要卖出
+        if (isBuy && buyPrice < prices[prices.length - 1]) {
+            maxProfit += prices[prices.length - 1] - buyPrice;
+        }
+        return maxProfit;
     }
 }
