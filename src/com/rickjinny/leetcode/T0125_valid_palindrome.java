@@ -15,7 +15,23 @@ package com.rickjinny.leetcode;
  */
 public class T0125_valid_palindrome {
 
-    public boolean isPalindrome(String s) {
-        return false;
+    public static boolean isPalindrome(String s) {
+        if (s == null) {
+            return true;
+        }
+        s = s.toLowerCase();
+        int length = s.length();
+        StringBuilder str = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            if ((c >= '0' && c < '9') || (c >= 'a' && c <= 'z')) {
+                str.append(c);
+            }
+        }
+        return str.toString().equals(str.reverse().toString());
+    }
+
+    public static void main(String[] args) {
+        boolean palindrome = isPalindrome("A man, a plan, a cancel: Panama");
+        System.out.println(palindrome);
     }
 }
