@@ -18,7 +18,7 @@ import java.util.Map;
  */
 public class T0136_single_number {
 
-    public int singleNumber(int[] nums) {
+    public static int singleNumber(int[] nums) {
         Map<Integer, Integer> map = new HashMap<>();
         for (Integer i : nums) {
             Integer count = map.get(i);
@@ -33,5 +33,11 @@ public class T0136_single_number {
             }
         }
         return -1;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {4, 1, 2, 1, 2};
+        int a = singleNumber(arr);
+        System.out.println(a);
     }
 }
