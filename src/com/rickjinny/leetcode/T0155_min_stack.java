@@ -1,5 +1,7 @@
 package com.rickjinny.leetcode;
 
+import java.util.Stack;
+
 /**
  * 155、最小栈
  * 设计一个支持 push, pop, top 操作，并能在常数时间内检索到最小元素的栈。
@@ -34,26 +36,30 @@ package com.rickjinny.leetcode;
  */
 public class T0155_min_stack {
 
-    /**
-     * initialize your data structure here.
-     */
-    public T0155_min_stack() {
+    private Stack<Integer> stack;
 
+    public T0155_min_stack() {
+        stack = new Stack<>();
     }
 
     public void push(int x) {
-
+        stack.push(x);
     }
 
     public void pop() {
-
+        stack.pop();
     }
 
     public int top() {
-        return 0;
+        return stack.firstElement();
     }
 
+    // 时间复杂度
     public int getMin() {
-        return 0;
+        Integer minValue = stack.firstElement();
+        for (Integer i : stack) {
+            minValue = Math.min(minValue, i);
+        }
+        return minValue;
     }
 }
