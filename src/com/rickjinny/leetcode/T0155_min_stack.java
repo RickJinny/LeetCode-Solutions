@@ -34,4 +34,26 @@ package com.rickjinny.leetcode;
  */
 public class T0155_min_stack {
 
+    /**
+     * initialize your data structure here.
+     */
+    public T0155_min_stack() {
+
+    }
+
+    public void push(int x) {
+
+    }
+
+    public void pop() {
+
+    }
+
+    public int top() {
+        return 0;
+    }
+
+    public int getMin() {
+        return 0;
+    }
 }
