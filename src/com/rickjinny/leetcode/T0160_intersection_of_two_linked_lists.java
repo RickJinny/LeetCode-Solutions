@@ -16,7 +16,40 @@ package com.rickjinny.leetcode;
 public class T0160_intersection_of_two_linked_lists {
 
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        return null;
+        if (headA == null || headB == null) {
+            return null;
+        }
+
+        // 为 headB 构造环形链表
+        ListNode temp = headB;
+        if (temp.next != null) {
+            temp = temp.next;
+        }
+        temp.next = headB;
+
+        // 从 headA 出发找入环点
+        ListNode fast = headA;
+        ListNode slow = headA;
+        while (true) {
+            if (fast == null || fast.next == null) {
+                temp.next = null;
+                return null;
+            }
+
+            fast = fast.next.next;
+            slow = slow.next;
+            if (fast == slow) {
+                break;
+            }
+        }
+
+        fast = headA;
+        while (slow != fast) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        temp.next = null;
+        return fast;
     }
 
     public static class ListNode {
