@@ -15,5 +15,16 @@ package com.rickjinny.leetcode;
  */
 public class T0160_intersection_of_two_linked_lists {
 
-    
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        return null;
+    }
+
+    public static class ListNode {
+        int value;
+        ListNode next;
+
+        public ListNode(int value) {
+            this.value = value;
+        }
+    }
 }
