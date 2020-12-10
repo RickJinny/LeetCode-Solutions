@@ -1,5 +1,8 @@
 package com.rickjinny.leetcode;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 167、两数之和II: 输入有序数组
  * 给定一个已按照升序排序的有序数组，找到两个数使得他们相加之和等于目标数。
@@ -15,18 +18,20 @@ package com.rickjinny.leetcode;
 public class T0167_two_sum_ii_input_array_is_sorted {
 
     public int[] twoSum(int[] numbers, int target) {
-        int low = 0;
-        int high = numbers.length - 1;
-        while (low < high) {
-            int sum = numbers[low] + numbers[high];
-            if (sum == target) {
-                return new int[]{low + 1, high + 1};
-            } else if (sum < target) {
-                ++low;
-            } else {
-                --high;
+        Map<Integer, Integer> map = new HashMap<>();
+        int[] result = new int[2];
+        for (int i = 0; i < numbers.length; i++) {
+            map.put(numbers[i], i);
+        }
+
+        for (int i = 0; i < numbers.length; i++) {
+            int temp = target - numbers[i];
+            if (map.containsKey(temp) && map.get(temp) != i) {
+                result[0] = i;
+                result[1] = map.get(temp);
+                break;
             }
         }
-        return new int[]{-1, -1};
+        return result;
     }
 }
