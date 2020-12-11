@@ -29,6 +29,16 @@ package com.rickjinny.leetcode;
 public class T0168_excel_sheet_column_title {
 
     public String convertToTitle(int n) {
-        return null;
+        String res = "";
+        int count = 0;
+        while (n > 26) {
+            n -= 26;
+            count++;
+        }
+        if (count > 0) {
+            res += convertToTitle(count);
+        }
+        res += (char) (n - 1 + 'A');
+        return res;
     }
 }
