@@ -29,12 +29,17 @@ package com.rickjinny.leetcode;
  */
 public class T0171_excel_sheet_column_number {
 
-    public int titleToNumber(String s) {
+    public static int titleToNumber(String s) {
         char[] charArray = s.toCharArray();
         int res = 0;
         for (int i = 0; i < charArray.length; i++) {
             res = res * 26 + (charArray[i] - 'A' + 1);
         }
         return res;
+    }
+
+    public static void main(String[] args) {
+        int aa = titleToNumber("AA");
+        System.out.println(aa);
     }
 }
