@@ -29,4 +29,7 @@ package com.rickjinny.leetcode;
  */
 public class T0175_combine_two_tables {
 
+    public static void main(String[] args) {
+        
+    }
 }
