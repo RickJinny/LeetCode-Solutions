@@ -23,6 +23,6 @@ public class T0176_second_highest_salary {
 
     public static void main(String[] args) {
         //
-        
+
     }
 }
