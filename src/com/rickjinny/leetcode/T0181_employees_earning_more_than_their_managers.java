@@ -6,7 +6,7 @@ package com.rickjinny.leetcode;
 public class T0181_employees_earning_more_than_their_managers {
 
     public static void main(String[] args) {
-        
+
     }
 
 }

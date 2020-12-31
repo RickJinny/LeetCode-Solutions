@@ -30,6 +30,6 @@ package com.rickjinny.leetcode;
 public class T0175_combine_two_tables {
 
     public static void main(String[] args) {
-
+        System.out.println("select firstName, lastName, city, state from person as p left join address as a on p.personId = a.personId;");
     }
 }
