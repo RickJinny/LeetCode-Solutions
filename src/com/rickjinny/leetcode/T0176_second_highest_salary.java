@@ -22,7 +22,6 @@ package com.rickjinny.leetcode;
 public class T0176_second_highest_salary {
 
     public static void main(String[] args) {
-        //
-
+        System.out.println("select max(Salary) as SecondHighestSalary from Employee where Salary < (select max(Salary) from Employee where Salary);");
     }
 }
