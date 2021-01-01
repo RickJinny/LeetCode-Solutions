@@ -43,6 +43,6 @@ public class T0190_reverse_bits {
     }
 
     public static void main(String[] args) {
-        
+
     }
 }
