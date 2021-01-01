@@ -33,6 +33,11 @@ public class T0191_number_of_1_bits {
 
     // you need to treat n as an unsigned value
     public int hammingWeight(int n) {
-        return 0;
+        int sum = 0;
+        while (n != 0) {
+            sum++;
+            n &= n - 1;
+        }
+        return sum;
     }
 }
