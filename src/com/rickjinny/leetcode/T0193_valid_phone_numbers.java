@@ -18,7 +18,7 @@ package com.rickjinny.leetcode;
  * (123) 456-7890
  *
  */
-public class T0192_valid_phone_numbers {
+public class T0193_valid_phone_numbers {
 
     // Read from the file file.txt and output all valid phone numbers to stdout.
 }
