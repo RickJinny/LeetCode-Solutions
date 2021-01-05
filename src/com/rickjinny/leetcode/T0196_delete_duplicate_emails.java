@@ -6,6 +6,6 @@ package com.rickjinny.leetcode;
 public class T0196_delete_duplicate_emails {
 
     public static void main(String[] args) {
-        
+
     }
 }
