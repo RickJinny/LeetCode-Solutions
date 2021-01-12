@@ -11,8 +11,19 @@ package com.rickjinny.leetcode;
 public class T0203_remove_linked_list_elements {
 
     public ListNode removeElements(ListNode head, int val) {
-        
-        return null;
+        ListNode sentinel = new ListNode(0);
+        sentinel.next = head;
+        ListNode prev = sentinel;
+        ListNode curr = head;
+        while (curr != null) {
+            if (curr.val == val) {
+                prev.next = curr.next;
+            } else {
+                prev = curr;
+            }
+            curr = curr.next;
+        }
+        return sentinel.next;
     }
 
     private static class ListNode {
