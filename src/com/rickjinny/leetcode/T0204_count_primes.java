@@ -22,6 +22,19 @@ package com.rickjinny.leetcode;
 public class T0204_count_primes {
 
     public int countPrimes(int n) {
-        return 0;
+        int ans = 0;
+        for (int i = 2; i < n; ++i) {
+            ans += isPrime(i) ? 1 : 0;
+        }
+        return ans;
+    }
+    
+    public boolean isPrime(int x) {
+        for (int i = 2; i * i <= x; ++i) {
+            if (x % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
