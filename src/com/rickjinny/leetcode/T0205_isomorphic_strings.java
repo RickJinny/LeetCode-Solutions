@@ -1,5 +1,8 @@
 package com.rickjinny.leetcode;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 205、同构字符串
  * 给定两个字符串 s 和 t，判断它们是否是同构的。
@@ -24,6 +27,18 @@ package com.rickjinny.leetcode;
 public class T0205_isomorphic_strings {
 
     public boolean isIsomorphic(String s, String t) {
+        Map<Character, Character> s2t = new HashMap<>();
+        Map<Character, Character> t2s = new HashMap<>();
+        int length = s.length();
+        for (int i = 0; i < length; i++) {
+            char x = s.charAt(i);
+            char y = t.charAt(i);
+            if ((s2t.containsKey(x) && s2t.get(x) != y) || (t2s.containsKey(y) && t2s.get(y) != x)) {
+                return false;
+            }
+            s2t.put(x, y);
+            t2s.put(y, x);
+        }
         return false;
     }
 }
