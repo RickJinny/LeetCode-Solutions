@@ -14,7 +14,14 @@ package com.rickjinny.leetcode;
 public class T0206_reverse_linked_list {
 
     public ListNode reverseList(ListNode head) {
-        return null;
+        ListNode prev = null;
+        ListNode curr = head;
+        while (curr != null) {
+            ListNode next = curr.next;
+            curr.next = curr;
+            curr = next;
+        }
+        return prev;
     }
 
     public static class ListNode {
