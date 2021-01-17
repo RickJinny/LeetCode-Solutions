@@ -1,5 +1,7 @@
 package com.rickjinny.leetcode;
 
+import java.util.Arrays;
+
 /**
  * 217、存在重复元素
  * 给定一个整数数组，判断是否存在重复元素。
@@ -19,8 +21,22 @@ package com.rickjinny.leetcode;
  */
 public class T0217_contains_duplicate {
 
-    public boolean containDuplicate(int[] nums) {
-        
+    public static boolean containDuplicate(int[] nums) {
+        // 对数组中的元素进行排序
+        Arrays.sort(nums);
+        // 遍历数组
+        for (int i = 0; i < nums.length - 1; i++) {
+            // 如果该元素和下一个元素相同，则为 true
+            if (nums[i] == nums[i + 1]) {
+                return true;
+            }
+        }
         return false;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 3, 4};
+        boolean b = containDuplicate(nums);
+        System.out.println(b);
     }
 }
