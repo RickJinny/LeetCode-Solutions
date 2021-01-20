@@ -24,6 +24,9 @@ package com.rickjinny.leetcode;
  */
 public class T0226_invert_binary_tree {
 
+    public TreeNode invertTree(TreeNode root) {
+        return null;
+    }
 
     public static class TreeNode {
         int val;
