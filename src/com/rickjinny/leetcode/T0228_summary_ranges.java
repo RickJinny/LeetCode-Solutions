@@ -1,5 +1,6 @@
 package com.rickjinny.leetcode;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,6 +15,27 @@ import java.util.List;
 public class T0228_summary_ranges {
 
     public List<String> summaryRanges(int[] nums) {
-        return null;
+        List<String> ans = new ArrayList<>();
+        if (nums == null || nums.length < 1) {
+            return ans;
+        }
+
+        int i = 0;
+        int n = nums.length;
+        while (i < n) {
+            if (i == n - 1) {
+                ans.add(String.valueOf(nums[i++]));
+            } else {
+                int start = nums[i];
+                int end = nums[i++];
+                while (i < n && nums[i] == end + 1) {
+                    i++;
+                    end++;
+                }
+                String item = start == end ? String.valueOf(start) : start + "->" + end;
+                ans.add(item);
+            }
+        }
+        return ans;
     }
 }
