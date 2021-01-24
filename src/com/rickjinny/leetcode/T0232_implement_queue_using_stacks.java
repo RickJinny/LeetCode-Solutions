@@ -39,4 +39,35 @@ package com.rickjinny.leetcode;
  */
 public class T0232_implement_queue_using_stacks {
 
+    public static void main(String[] args) {
+        MyQueue myQueue = new MyQueue();
+        myQueue.push(1);
+        int pop = myQueue.pop();
+        int peek = myQueue.peek();
+        boolean empty = myQueue.empty();
+        System.out.println("pop = " + pop + ", peek = " + peek + ", empty = " + empty);
+    }
+
+    private static class MyQueue {
+
+        public MyQueue() {
+
+        }
+
+        public void push(int x) {
+
+        }
+
+        public int pop() {
+            return 0;
+        }
+
+        public int peek() {
+            return 0;
+        }
+
+        public boolean empty() {
+            return false;
+        }
+    }
 }
