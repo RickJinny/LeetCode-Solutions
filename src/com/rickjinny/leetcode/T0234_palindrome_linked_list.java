@@ -41,6 +41,7 @@ public class T0234_palindrome_linked_list {
     }
 
     public static class ListNode {
+
         int val;
         ListNode next;
 
