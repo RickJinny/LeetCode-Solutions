@@ -1,5 +1,8 @@
 package com.rickjinny.leetcode;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 234、回文链表
  * 请判断一个链表是否为回文链表。
@@ -17,7 +20,24 @@ package com.rickjinny.leetcode;
 public class T0234_palindrome_linked_list {
 
     public boolean isPalindrome(ListNode head) {
-        return false;
+        List<Integer> values = new ArrayList<>();
+        // 将链表的值复制到数组中
+        ListNode currentNode = head;
+        while (currentNode != null) {
+            values.add(currentNode.val);
+            currentNode = currentNode.next;
+        }
+        // 使用双指针判断是否是回文
+        int front = 0;
+        int back = values.size() - 1;
+        while (front < back) {
+            if (!values.get(front).equals(values.get(back))) {
+                return false;
+            }
+            front++;
+            back--;
+        }
+        return true;
     }
 
     public static class ListNode {
