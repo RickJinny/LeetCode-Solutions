@@ -24,8 +24,13 @@ package com.rickjinny.leetcode;
  */
 public class T0237_delete_node_in_a_linked_list {
 
+    /**
+     * node 表示的是要删除的结点
+     */
     public void deleteNode(ListNode node) {
+        // 因为无法访问前一个结点，所以可以把要删除的结点的后一个节点的值前移
         node.val = node.next.val;
+        // 然后删除掉后一个结点
         node.next = node.next.next;
     }
 
