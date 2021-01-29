@@ -25,7 +25,8 @@ package com.rickjinny.leetcode;
 public class T0237_delete_node_in_a_linked_list {
 
     public void deleteNode(ListNode node) {
-
+        node.val = node.next.val;
+        node.next = node.next.next;
     }
 
     public static class ListNode {
