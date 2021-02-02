@@ -13,7 +13,12 @@ package com.rickjinny.leetcode;
  */
 public class T0258_add_digits {
 
-    public int addDigits(int num) {
-        return 0;
+    public static int addDigits(int num) {
+        return (num - 1) % 9 + 1;
+    }
+
+    public static void main(String[] args) {
+        int i = addDigits(38);
+        System.out.println(i);
     }
 }
