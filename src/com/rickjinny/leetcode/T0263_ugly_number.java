@@ -27,6 +27,23 @@ package com.rickjinny.leetcode;
 public class T0263_ugly_number {
 
     public boolean isUgly(int num) {
-        return false;
+        if (num == 0) {
+            return false;
+        }
+        boolean flag = true;
+        while (flag && num != 1) {
+            flag = false;
+            if (num % 2 == 0) {
+                num = num >> 1;
+                flag = true;
+            } else if (num % 3 == 0) {
+                num = num / 3;
+                flag = true;
+            } else if (num % 5 == 0) {
+                num = num / 5;
+                flag = true;
+            }
+        }
+        return num == 1;
     }
 }
