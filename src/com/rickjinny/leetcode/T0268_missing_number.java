@@ -1,5 +1,7 @@
 package com.rickjinny.leetcode;
 
+import java.util.Arrays;
+
 /**
  * 268、丢失的数字
  * 给定一个包含 [0, n] 中 n 个数的数组 nums，找出 [0, n] 这个范围内没有出现在数组中的那个数。
@@ -39,6 +41,23 @@ package com.rickjinny.leetcode;
 public class T0268_missing_number {
 
     public int missingNumber(int[] nums) {
-        return 0;
+        Arrays.sort(nums);
+        if (nums[nums.length - 1] != nums.length) { // 判断 n 是否出现在末尾
+            return nums.length;
+        } else if (nums[0] != 0) { // 判断 0 是否出现在首位
+            return 0;
+        }
+
+        // 此时缺失的数字一定在 (0, n) 中
+        int len = nums.length;
+        for (int i = 0; i < len; i++) {
+            int expectedNum = nums[i - 1] + 1;
+            if (nums[i] != expectedNum) {
+                return expectedNum;
+            }
+        }
+
+        // 未缺失任何数字（保证函数有返回值）
+        return -1;
     }
 }
