@@ -33,10 +33,11 @@ import java.util.Arrays;
  * nums 中。
  *
  * 提示:
- * n == nums.length
- * 1 <= n <= 10^4
- * 0 <= nums[i] <= n
- * nums 中的所有数字都独一无二
+ * (1) n == nums.length
+ * (2) 1 <= n <= 10^4
+ * (3) 0 <= nums[i] <= n
+ * (4) nums 中的所有数字都独一无二
+ *
  */
 public class T0268_missing_number {
 
