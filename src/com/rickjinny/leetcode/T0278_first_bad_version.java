@@ -16,6 +16,10 @@ package com.rickjinny.leetcode;
  * 调用 isBadVersion(5) -> true
  * 调用 isBadVersion(4) -> true
  * 所以，4 是第一个错误的版本。
+ *
+ * The isBadVersion API is defined in the parent class VersionControl.
+ * boolean isBadVersion(int version);
+ * 
  */
 public class T0278_first_bad_version {
 
