@@ -39,6 +39,13 @@ public class T0292_nim_game {
         return dfs(n, memo);
     }
 
+    /**
+     * 方法2: 数学方法
+     */
+    public boolean canWinNum2(int n) {
+        return (n % 4) != 0;
+    }
+
     private boolean dfs(int n, Boolean[] memo) {
         if (n <= 3) {
             return true;
