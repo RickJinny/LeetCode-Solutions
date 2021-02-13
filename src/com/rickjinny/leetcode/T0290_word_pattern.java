@@ -62,7 +62,7 @@ public class T0290_word_pattern {
         }
         return true;
     }
-    
+
     public static void main(String[] args) {
 
     }
