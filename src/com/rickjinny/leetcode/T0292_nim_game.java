@@ -62,6 +62,4 @@ public class T0292_nim_game {
         memo[n] = false;
         return false;
     }
-
-
 }
