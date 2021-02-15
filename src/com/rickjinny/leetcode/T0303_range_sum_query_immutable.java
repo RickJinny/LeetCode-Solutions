@@ -28,7 +28,9 @@ package com.rickjinny.leetcode;
 public class T0303_range_sum_query_immutable {
 
     /**
-     * Your 
+     * Your NumArray object will be instantiated and called as such.
+     * NumArray obj = new NumArray(nums);
+     * int param_1 = obj.sumRange(i, j);
      */
     private static class NumArray {
 
