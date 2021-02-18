@@ -34,12 +34,25 @@ public class T0303_range_sum_query_immutable {
      */
     private static class NumArray {
 
-        public NumArray(int[] nums) {
+        private int[] sums;
 
+        public NumArray(int[] nums) {
+            sums = new int[nums.length];
+            if (nums.length == 0) {
+                return;
+            }
+            sums[0] = nums[0];
+            for (int i = 0; i < nums.length; i++) {
+                sums[i] += sums[i - 1] + nums[i];
+            }
         }
 
         public int sumRange(int i, int j) {
-            return 0;
+            if (i == 0) {
+                return sums[j];
+            } else {
+                return sums[j] - sums[i - 1];
+            }
         }
     }
 }
