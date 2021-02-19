@@ -26,6 +26,12 @@ package com.rickjinny.leetcode;
 public class T0326_power_of_three {
 
     public boolean isPowerOfThree(int n) {
-        return false;
+        if (n < 1) {
+            return false;
+        }
+        while (n % 3 == 0) {
+            n /= 3;
+        }
+        return n == 1;
     }
 }
