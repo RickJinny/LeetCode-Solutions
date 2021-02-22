@@ -23,7 +23,17 @@ package com.rickjinny.leetcode;
  */
 public class T0342_power_of_four {
 
-    public boolean isPowerOfFour(int n) {
+    public boolean isPowerOfFour(int num) {
+        // 解法1: 判断最低位的 1
+        if (num < 1 || (num & (num - 1)) != 0) {
+            return false;
+        } else {
+            for (int i = 0; i < 32; ++i) {
+                if ((num >> i & 1) == 1) {
+                    return i % 2 == 0;
+                }
+            }
+        }
         return false;
     }
 }
