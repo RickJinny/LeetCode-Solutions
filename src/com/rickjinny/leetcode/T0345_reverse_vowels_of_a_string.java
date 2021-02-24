@@ -17,6 +17,12 @@ package com.rickjinny.leetcode;
 public class T0345_reverse_vowels_of_a_string {
 
     public String reverseVowels(String s) {
+        if (s.length() <= 1) {
+            return s;
+        }
+        
+
+
         return null;
     }
 }
