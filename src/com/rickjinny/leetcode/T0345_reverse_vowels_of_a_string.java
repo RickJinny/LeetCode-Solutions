@@ -20,7 +20,7 @@ public class T0345_reverse_vowels_of_a_string {
         if (s.length() <= 1) {
             return s;
         }
-        
+
 
 
         return null;
