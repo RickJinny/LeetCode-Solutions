@@ -16,6 +16,26 @@ package com.rickjinny.leetcode;
 public class T0367_valid_perfect_square {
 
     public boolean isPerfectSquare(int num) {
+        if (num < 2) {
+            return true;
+        }
+
+        long left = 2;
+        long right = num / 2;
+        long x;
+        long guessSquared;
+        while (left <= right) {
+            x = left + (right - left) / 2;
+            guessSquared = x * x;
+            if (guessSquared == num) {
+                return true;
+            }
+            if (guessSquared > num) {
+                right = x - 1;
+            } else {
+                left = x + 1;
+            }
+        }
         return false;
     }
 }
