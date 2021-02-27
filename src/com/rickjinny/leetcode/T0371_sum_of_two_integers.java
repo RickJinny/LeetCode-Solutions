@@ -20,7 +20,7 @@ public class T0371_sum_of_two_integers {
             b = (a & b) << 1;
             a = temp;
         }
-        
+
         return a;
     }
 }
