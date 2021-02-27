@@ -15,6 +15,11 @@ package com.rickjinny.leetcode;
 public class T0371_sum_of_two_integers {
 
     public int getSum(int a, int b) {
-        return 0;
+        while (b != 0) {
+            int temp = a ^ b;
+            b = (a & b) << 1;
+            a = temp;
+        }
+        return a;
     }
 }
