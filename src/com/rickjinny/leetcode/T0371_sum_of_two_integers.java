@@ -22,8 +22,4 @@ public class T0371_sum_of_two_integers {
         }
         return a;
     }
-
-    public static void main(String[] args) {
-        
-    }
 }
