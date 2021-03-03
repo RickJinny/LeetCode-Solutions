@@ -36,7 +36,7 @@ public class T0374_guess_number_higher_or_lower {
 
     public int guessNumber(int n) {
         for (int i = 1; i < n; i++) {
-            
+
         }
         return n;
     }
