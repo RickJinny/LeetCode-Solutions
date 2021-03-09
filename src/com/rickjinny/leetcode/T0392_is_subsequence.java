@@ -25,6 +25,7 @@ package com.rickjinny.leetcode;
 public class T0392_is_subsequence {
 
     public boolean isSubsequence(String s, String t) {
-        return false;
+
+        return true;
     }
 }
