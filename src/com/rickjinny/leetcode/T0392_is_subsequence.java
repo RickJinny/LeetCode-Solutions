@@ -25,7 +25,16 @@ package com.rickjinny.leetcode;
 public class T0392_is_subsequence {
 
     public boolean isSubsequence(String s, String t) {
-
-        return true;
+        int n = s.length();
+        int m = t.length();
+        int i = 0;
+        int j = 0;
+        while (i < n && j < m) {
+            if (s.charAt(i) == t.charAt(j)) {
+                i++;
+            }
+            j++;
+        }
+        return i == n;
     }
 }
