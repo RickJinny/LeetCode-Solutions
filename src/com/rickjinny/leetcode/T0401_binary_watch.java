@@ -12,7 +12,7 @@ import java.util.List;
  * 输入: n = 1
  * 返回: ["1:00", "2:00", "4:00", "8:00", "0:01", "0:02", "0:04", "0:08", "0:16", "0:32"]
  */
-public class T401_binary_watch {
+public class T0401_binary_watch {
 
     int[] hours = new int[]{1, 2, 4, 8, 0, 0, 0, 0, 0, 0};
     int[] minutes = new int[]{0, 0, 0, 0, 1, 2, 4, 8, 16, 32};
