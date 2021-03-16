@@ -10,6 +10,8 @@ public class T0405_convert_a_number_to_hexadecimal {
             return "0";
         }
 
+        
+
 
         return null;
     }
