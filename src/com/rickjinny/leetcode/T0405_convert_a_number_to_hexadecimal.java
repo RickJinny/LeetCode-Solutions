@@ -6,6 +6,11 @@ package com.rickjinny.leetcode;
 public class T0405_convert_a_number_to_hexadecimal {
 
     public String toHex(int num) {
+        if (num == 0) {
+            return "0";
+        }
+
+
         return null;
     }
 }
