@@ -8,5 +8,5 @@ public class T0409_longest_palindrome {
     public int longestPalindrome(String s) {
         return 0;
     }
-    
+
 }
