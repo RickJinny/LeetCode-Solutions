@@ -1,5 +1,9 @@
 package com.rickjinny.leetcode;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * 414、第三大的数
  * 给你一个非空数组，返回此数组中第三大的数。如果不存在，则返回数组中最大的数。
@@ -30,7 +34,20 @@ package com.rickjinny.leetcode;
 public class T0414_third_maximum_number {
 
     public int thirdMax(int[] nums) {
-        return 0;
-    }
+        Arrays.sort(nums);
+        List<Integer> ans = new ArrayList<>();
 
+        for (int i : nums) {
+            if (ans.contains(i)) {
+                continue;
+            }
+            ans.add(i);
+        }
+
+        int n = ans.size();
+        if (n == 1 || n == 2) {
+            return ans.get(n - 1);
+        }
+        return ans.get(ans.size() - 3);
+    }
 }
