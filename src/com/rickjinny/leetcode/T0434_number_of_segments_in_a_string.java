@@ -13,6 +13,10 @@ package com.rickjinny.leetcode;
 public class T0434_number_of_segments_in_a_string {
 
     public int countSegments(String s) {
-        return 0;
+        String trimmed = s.trim();
+        if (trimmed.equals("")) {
+            return 0;
+        }
+        return trimmed.split("\\s+").length;
     }
 }
