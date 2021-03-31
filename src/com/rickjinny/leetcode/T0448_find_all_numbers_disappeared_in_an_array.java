@@ -1,5 +1,6 @@
 package com.rickjinny.leetcode;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,7 +16,18 @@ import java.util.List;
 public class T0448_find_all_numbers_disappeared_in_an_array {
 
     public List<Integer> findDisappearedNumbers(int[] nums) {
-        return null;
+        int n = nums.length;
+        for (int num : nums) {
+            int x = (num - 1) % n;
+            nums[x] += n;
+        }
+        List<Integer> ret = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            if (nums[i] <= n) {
+                ret.add(i + 1);
+            }
+        }
+        return ret;
     }
     
 }
