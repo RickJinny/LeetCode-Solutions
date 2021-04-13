@@ -9,7 +9,12 @@ package com.rickjinny.leetcode;
 public class T0461_hamming_distance {
 
     public int hammingDistance(int x, int y) {
-        return 0;
+        int xor = x ^ y;
+        int distance = 0;
+        while (xor != 0) {
+            distance += 1;
+            xor = xor & (xor - 1);
+        }
+        return distance;
     }
-
 }
