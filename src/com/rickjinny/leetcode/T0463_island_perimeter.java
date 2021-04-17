@@ -26,8 +26,11 @@ package com.rickjinny.leetcode;
  * col == grid[i].length
  * 1 <= row, col <= 100
  * grid[i][j] 为 0 或 1
- * 
+ *
  */
 public class T0463_island_perimeter {
 
+    public int isLandPerimeter(int[][] grid) {
+        return 0;
+    }
 }
