@@ -22,6 +22,11 @@ package com.rickjinny.leetcode;
 public class T0476_number_complement {
 
     public int findComplement(int num) {
-        return 0;
+        String complementStr = "";
+        String binaryStr = Integer.toBinaryString(num);
+        for (int i = 0; i < binaryStr.length(); i++) {
+            complementStr += binaryStr.charAt(i) ^ '1';
+        }
+        return Integer.parseInt(complementStr, 2);
     }
 }
