@@ -21,4 +21,7 @@ package com.rickjinny.leetcode;
  */
 public class T0492_construct_the_rectangle {
 
+    public int[] constructRectangle(int area) {
+        return null;
+    }
 }
