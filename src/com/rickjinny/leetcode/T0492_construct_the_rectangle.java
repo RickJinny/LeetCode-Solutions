@@ -22,6 +22,16 @@ package com.rickjinny.leetcode;
 public class T0492_construct_the_rectangle {
 
     public int[] constructRectangle(int area) {
+        int sqrt = (int) Math.sqrt(area);
+        if (sqrt * sqrt == area) {
+            return new int[]{sqrt, sqrt};
+        }
+
+        for (int i = sqrt; i >= 1; i--) {
+            if (area % i == 0) {
+                return new int[]{area / i, i};
+            }
+        }
         return null;
     }
 }
