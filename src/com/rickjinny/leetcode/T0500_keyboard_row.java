@@ -1,5 +1,8 @@
 package com.rickjinny.leetcode;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 500、键盘行
  * 给你一个字符串数组 words，只返回可以使用在 美式键盘 同一行的字母打印出来的单词。
@@ -25,6 +28,47 @@ package com.rickjinny.leetcode;
 public class T0500_keyboard_row {
 
     public String[] findWords(String[] words) {
-        return null;
+        if (words == null) {
+            return null;
+        }
+
+        List<String> ans = new ArrayList<>();
+        // 字典行
+        String[] lines = new String[]{"qwertyuiop", "asdfghjkl", "zxcvbnm"};
+        // 挨个单词匹配是否满足条件
+        for (String word : words) {
+            if (judge(word.toLowerCase(), lines)) {
+                ans.add(word);
+            }
+        }
+
+        return ans.toArray(new String[0]);
+    }
+
+    private boolean judge(String word, String[] lines) {
+        boolean ok = true;
+        String find = null;
+
+        // 先用 word 首字符，确定属于哪一行
+        for (String line : lines) {
+            if (line.indexOf(word.charAt(0)) > -1) {
+                find = line;
+                break;
+            }
+        }
+
+        if (find == null) {
+            ok = false;
+            return ok;
+        }
+
+        // 判断 word 字符串所有字符是否都属于同一行
+        for (int i = 0; i < word.length(); i++) {
+            if (find.indexOf(word.charAt(i)) < 0) {
+                ok = false;
+                break;
+            }
+        }
+        return ok;
     }
 }
