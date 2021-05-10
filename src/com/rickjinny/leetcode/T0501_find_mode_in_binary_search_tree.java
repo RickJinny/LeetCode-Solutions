@@ -1,5 +1,8 @@
 package com.rickjinny.leetcode;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 501、二叉搜索树中的众数
  * 给定一个有相同值的二叉搜索树（BST），找出 BST 中的所有众数（出现频率最高的元素）
@@ -21,10 +24,65 @@ package com.rickjinny.leetcode;
  */
 public class T0501_find_mode_in_binary_search_tree {
 
-    public int[] findMode() {
-        
+    private int base;
+
+    private int count;
+
+    private int maxCount;
+
+    private List<Integer> answer = new ArrayList<>();
+
+    public int[] findMode(TreeNode root) {
+        TreeNode cur = root;
+        TreeNode pre = null;
+        while (cur != null) {
+            if (cur.left == null) {
+                update(cur.val);
+                cur = cur.right;
+                continue;
+            }
+
+            pre = cur.left;
+            while (pre.right != null && pre.right != cur) {
+                pre = pre.right;
+            }
+
+            if (pre.right == null) {
+                pre.right = cur;
+                cur = cur.left;
+            } else {
+                pre.right = null;
+                update(cur.val);
+                cur = cur.right;
+            }
+        }
+
+        int[] mode = new int[answer.size()];
+        for (int i = 0; i < answer.size(); ++i) {
+            mode[i] = answer.get(i);
+        }
+
+        return mode;
     }
 
+    private void update(int val) {
+        if (val == base) {
+            ++count;
+        } else {
+            count = 1;
+            base = val;
+        }
+
+        if (count == maxCount) {
+            answer.add(base);
+        }
+
+        if (count > maxCount) {
+            maxCount = count;
+            answer.clear();
+            answer.add(base);
+        }
+    }
 
     public static class TreeNode {
         int val;
