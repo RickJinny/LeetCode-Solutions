@@ -18,6 +18,22 @@ package com.rickjinny.leetcode;
 public class T0504_base_7 {
 
     public String convertToBase(int num) {
-        return "";
+        StringBuilder sb = new StringBuilder();
+        if (num == 0) {
+            return "0";
+        }
+
+        boolean flag = num < 0;
+        num = Math.abs(num);
+        while (num != 0) {
+            sb.append(num % 7);
+            num /= 7;
+        }
+
+        if (flag) {
+            sb.append("-");
+        }
+
+        return sb.reverse().toString();
     }
 }
