@@ -1,5 +1,7 @@
 package com.rickjinny.leetcode;
 
+import java.util.Arrays;
+
 /**
  * 506、相对名次
  * 给出 N 名运动员的成绩，找出他们的相对名次并授予前三名对应的奖牌。前三名运动员将会被分别授予
@@ -19,7 +21,31 @@ package com.rickjinny.leetcode;
  */
 public class T0506_relative_ranks {
 
-    public String[] findRelativeRanks(int[] score) {
-        return null;
+    public String[] findRelativeRanks(int[] nums) {
+        int n = nums.length;
+        int[] array = new int[n];
+        // 拷贝数组
+        System.arraycopy(nums, 0, array, 0, n);
+        // 对数组进行排序
+        Arrays.sort(array);
+        String[] result = new String[n];
+        for (int i = 0; i < n; i++) {
+            // 查找当前成绩排第几名
+            int index = n - Arrays.binarySearch(array, nums[i]);
+            switch (index) {
+                case 1:
+                    result[i] = "Gold Medal";
+                    break;
+                case 2:
+                    result[i] = "Silver Medal";
+                    break;
+                case 3:
+                    result[i] = "Bronze Medal";
+                    break;
+                default:
+                    result[i] = String.valueOf(index);
+            }
+        }
+        return result;
     }
 }
