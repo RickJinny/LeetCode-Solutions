@@ -30,4 +30,7 @@ package com.rickjinny.leetcode;
  */
 public class T0507_perfect_number {
 
+    public boolean checkPerfectNumber(int num) {
+        return false;
+    }
 }
