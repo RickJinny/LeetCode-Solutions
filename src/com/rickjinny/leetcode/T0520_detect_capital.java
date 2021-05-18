@@ -22,6 +22,25 @@ package com.rickjinny.leetcode;
 public class T0520_detect_capital {
 
     public boolean detectCapitalUse(String word) {
-        return false;
+        int one = 0;
+        for (int i = 0; i < word.length(); i++) {
+            if ('A' <= word.charAt(i) && word.charAt(i) <= 'z') {
+                one++;
+            }
+        }
+        // 首先用 charAt(i) 函数求出字符串中大写字母的个数
+        if (one == 0) {
+            // 如果 one = 0, 则全部是小写字母
+            return true;
+        } else if (one == word.length()) {
+            // 如果 one = 字符串的长度, 则全部是大写字母
+            return true;
+        } else if ('A' <= word.charAt(0) && word.charAt(0) < 'z' && one == 1) {
+            // 如果 charAt('0') 为大写字母，且 one = 1, 则表示只有一个大写字母，且在首位
+            return true;
+        } else {
+            // 其他条件返回 false
+            return false;
+        }
     }
 }
