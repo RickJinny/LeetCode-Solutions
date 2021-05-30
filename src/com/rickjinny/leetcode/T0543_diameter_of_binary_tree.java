@@ -54,6 +54,6 @@ public class T0543_diameter_of_binary_tree {
             this.right = right;
         }
     }
-    
+
 }
 
