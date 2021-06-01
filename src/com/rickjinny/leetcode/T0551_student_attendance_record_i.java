@@ -6,6 +6,12 @@ package com.rickjinny.leetcode;
 public class T0551_student_attendance_record_i {
 
     public boolean checkRecord(String s) {
-        return false;
+        int count = 0;
+        for (int i = 0; i < s.length() && count < 2; i++) {
+            if (s.charAt(i) == 'A') {
+                count++;
+            }
+        }
+        return count < 2 && s.indexOf("LLL") < 0;
     }
 }
