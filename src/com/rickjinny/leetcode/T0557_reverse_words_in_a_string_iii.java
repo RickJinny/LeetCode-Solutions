@@ -13,8 +13,12 @@ package com.rickjinny.leetcode;
 public class T0557_reverse_words_in_a_string_iii {
 
     public String reverseWords(String s) {
-
-
-        return null;
+        String[] strs = s.split(" ");
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < strs.length; i++) {
+            sb.append(new StringBuffer(strs[i])).reverse().toString();
+            sb.append(" ");
+        }
+        return sb.toString().trim();
     }
 }
