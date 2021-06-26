@@ -1,5 +1,7 @@
 package com.rickjinny.leetcode;
 
+import java.util.Arrays;
+
 /**
  * 561、数组拆分 I
  * 给定长度为 2n 的整数数组 nums, 你的任务是将这些数分成 n 对，
@@ -28,6 +30,11 @@ package com.rickjinny.leetcode;
 public class T0561_array_partition_i {
 
     public int arrayPairSum(int[] nums) {
-        return 0;
+        Arrays.sort(nums);
+        int ans = 0;
+        for (int i = 0; i < nums.length; i += 2) {
+            ans += nums[i];
+        }
+        return ans;
     }
 }
