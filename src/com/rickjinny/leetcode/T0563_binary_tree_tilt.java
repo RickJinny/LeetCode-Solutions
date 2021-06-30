@@ -11,8 +11,21 @@ package com.rickjinny.leetcode;
  */
 public class T0563_binary_tree_tilt {
 
+    private int tilt = 0;
+
     public int findTilt(TreeNode root) {
-        return 0;
+        traverse(root);
+        return tilt;
+    }
+
+    private int traverse(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int left = traverse(root.left);
+        int right = traverse(root.right);
+        tilt += Math.abs(left - right);
+        return left + right + root.val;
     }
 
     private static class TreeNode {
