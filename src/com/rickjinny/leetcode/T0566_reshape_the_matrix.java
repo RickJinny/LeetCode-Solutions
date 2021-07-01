@@ -16,4 +16,7 @@ package com.rickjinny.leetcode;
  */
 public class T0566_reshape_the_matrix {
 
+    public int[] matrixReshape(int[][] mat, int r, int c) {
+        return null;
+    }
 }
