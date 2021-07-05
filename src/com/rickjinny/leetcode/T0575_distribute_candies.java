@@ -22,4 +22,7 @@ package com.rickjinny.leetcode;
  */
 public class T0575_distribute_candies {
 
+    public int distributeCandies(int[] candyType) {
+        return 0;
+    }
 }
