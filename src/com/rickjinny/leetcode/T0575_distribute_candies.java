@@ -1,5 +1,8 @@
 package com.rickjinny.leetcode;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * 575、分糖果
  * 给定一个偶数长度的数组，其中不同的数字代表着不同种类的糖果，每一个数字代表一个糖果。
@@ -23,6 +26,11 @@ package com.rickjinny.leetcode;
 public class T0575_distribute_candies {
 
     public int distributeCandies(int[] candyType) {
-        return 0;
+        Set<Integer> set = new HashSet<>();
+        for (int i = 0; i < candyType.length; i++) {
+            set.add(candyType[i]);
+        }
+        int num = candyType.length / 2;
+        return Math.min(set.size(), num);
     }
 }
