@@ -1,5 +1,7 @@
 package com.rickjinny.leetcode;
 
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -9,8 +11,22 @@ import java.util.List;
  */
 public class T0589_n_ary_tree_preorder_traversal {
 
-    public List<Integer> preOrder() {
-        return null;
+    public List<Integer> preOrder(Node root) {
+        LinkedList<Integer> output = new LinkedList<>();
+        if (root == null) {
+            return output;
+        }
+
+        LinkedList<Node> stack = new LinkedList<>();
+        stack.add(root);
+        while (!stack.isEmpty()) {
+            Node node = stack.pollLast();
+            output.add(node.val);
+            Collections.reverse(node.children);
+            stack.addAll(node.children);
+        }
+
+        return output;
     }
 
     private static class Node {
