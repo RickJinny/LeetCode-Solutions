@@ -1,5 +1,9 @@
 package com.rickjinny.leetcode;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 599、两个列表的最小索引总和
  * 假设 Andy 和 Doris 想在晚餐时选择一家餐厅，并且他们都有一个表示最喜欢餐厅的列表，每个餐厅的名字用字符串表示。
@@ -26,6 +30,29 @@ package com.rickjinny.leetcode;
 public class T0599_minimum_index_sum_of_two_lists {
 
     public String[] findRestaurant(String[] list1, String[] list2) {
-        return null;
+        Map<String, Integer> map = new HashMap<>();
+        ArrayList<String> list = new ArrayList<>();
+        for (int i = 0; i < list1.length; i++) {
+            for (int j = 0; j < list2.length; j++) {
+                if (list1[i].equals(list2[j])) {
+                    map.put(list1[i], i + j);
+                }
+            }
+        }
+
+        int min = Integer.MAX_VALUE;
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            if (entry.getValue() <= min) {
+                if (entry.getValue() < min) {
+                    list.clear();
+                    min = entry.getValue();
+                    list.add(entry.getKey());
+                } else {
+                    min = entry.getValue();
+                    list.add(entry.getKey());
+                }
+            }
+        }
+        return list.toArray(new String[0]);
     }
 }
