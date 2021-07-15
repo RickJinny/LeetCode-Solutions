@@ -9,7 +9,19 @@ package com.rickjinny.leetcode;
 public class T0606_construct_string_from_binary_tree {
 
     public String tree2Str(TreeNode root) {
-        return null;
+        if (root == null) {
+            return "";
+        }
+
+        if (root.left == null && root.right == null) {
+            return root.val + "";
+        }
+
+        if (root.right == null) {
+            return root.val + "(" + tree2Str(root.left) + ")";
+        }
+
+        return root.val + "(" + tree2Str(root.left) + ")(" + tree2Str(root.right) + ")";
     }
 
     private static class TreeNode {
