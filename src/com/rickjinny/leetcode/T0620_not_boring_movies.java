@@ -31,7 +31,8 @@ package com.rickjinny.leetcode;
 public class T0620_not_boring_movies {
 
     public static void main(String[] args) {
-        
+        String SQL = "select * from cinema where mod(id, 2) = 1 and description != 'boring' order by rating desc";
+        System.out.println(SQL);
     }
 
 }
