@@ -30,6 +30,6 @@ package com.rickjinny.leetcode;
 public class T0627_swap_salary {
 
     public static void main(String[] args) {
-        System.out.println("");
+        System.out.println("update salary set sex = case sex when 'm' then 'f' else 'm' end;");
     }
 }
