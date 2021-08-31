@@ -23,6 +23,7 @@ import java.util.Map;
 public class T0645_set_mismatch {
 
     public static int[] findErrorNums(int[] nums) {
+        Arrays.sort(nums);
         Map<String, Integer> map = new HashMap<>(16);
         for (int num : nums) {
             String key = String.valueOf(num);
@@ -37,6 +38,10 @@ public class T0645_set_mismatch {
             if (entry.getValue() == 2) {
                 int num = Integer.parseInt(entry.getKey());
                 result[0] = num;
+                if (num == 1) {
+                    result[1] = num + 1;
+                    return result;
+                }
                 int beforeNum = num - 1;
                 Integer beforeSize = map.getOrDefault(String.valueOf(beforeNum), null);
                 if (beforeSize == null) {
