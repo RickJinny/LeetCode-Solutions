@@ -55,6 +55,9 @@ public class T0645_set_mismatch {
         return result;
     }
 
+    /**
+     * 正确解法
+     */
     public static int[] findErrorNums2(int[] nums) {
         int[] errorNums = new int[2];
         Map<Integer, Integer> map = new HashMap<>(16);
@@ -62,7 +65,7 @@ public class T0645_set_mismatch {
             map.put(num, map.getOrDefault(num, 0) + 1);
         }
 
-        for (int i = 0; i < nums.length; i++) {
+        for (int i = 1; i <= nums.length; i++) {
             int count = map.getOrDefault(i, 0);
             if (count == 2) {
                 errorNums[0] = i;
@@ -75,7 +78,7 @@ public class T0645_set_mismatch {
 
     public static void main(String[] args) {
         int[] nums = {2, 2};
-        int[] errorNums = findErrorNums(nums);
+        int[] errorNums = findErrorNums2(nums);
         System.out.println(Arrays.toString(errorNums));
     }
 }
