@@ -55,6 +55,24 @@ public class T0645_set_mismatch {
         return result;
     }
 
+    public static int[] findErrorNums2(int[] nums) {
+        int[] errorNums = new int[2];
+        Map<Integer, Integer> map = new HashMap<>(16);
+        for (int num : nums) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            int count = map.getOrDefault(i, 0);
+            if (count == 2) {
+                errorNums[0] = i;
+            } else if (count == 0) {
+                errorNums[1] = i;
+            }
+        }
+        return errorNums;
+    }
+
     public static void main(String[] args) {
         int[] nums = {2, 2};
         int[] errorNums = findErrorNums(nums);
