@@ -37,7 +37,13 @@ public class T0645_set_mismatch {
             if (entry.getValue() == 2) {
                 int num = Integer.parseInt(entry.getKey());
                 result[0] = num;
-                result[1] = num + 1;
+                int beforeNum = num - 1;
+                Integer beforeSize = map.getOrDefault(String.valueOf(beforeNum), null);
+                if (beforeSize == null) {
+                    result[1] = num - 1;
+                } else {
+                    result[1] = num + 1;
+                }
             }
         }
 
@@ -45,7 +51,7 @@ public class T0645_set_mismatch {
     }
 
     public static void main(String[] args) {
-        int[] nums = {1, 2, 2, 4};
+        int[] nums = {2, 2};
         int[] errorNums = findErrorNums(nums);
         System.out.println(Arrays.toString(errorNums));
     }
