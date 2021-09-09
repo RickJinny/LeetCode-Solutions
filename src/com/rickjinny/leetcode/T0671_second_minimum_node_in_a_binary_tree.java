@@ -34,8 +34,32 @@ package com.rickjinny.leetcode;
  */
 public class T0671_second_minimum_node_in_a_binary_tree {
 
+    private int ans;
+
+    private int rootValue;
+
     public int findSecondMinimumValue(TreeNode root) {
-        return 0;
+        ans = -1;
+        rootValue = root.val;
+        dfs(root);
+        return ans;
+    }
+
+    private void dfs(TreeNode node) {
+        if (node == null) {
+            return;
+        }
+
+        if (ans != -1 && node.val >= ans) {
+            return;
+        }
+
+        if (node.val > rootValue) {
+            ans = node.val;
+        }
+
+        dfs(node.left);
+        dfs(node.right);
     }
 
     private static class TreeNode {
