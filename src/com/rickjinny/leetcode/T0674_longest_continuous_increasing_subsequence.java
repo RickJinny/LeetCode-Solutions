@@ -6,6 +6,7 @@ package com.rickjinny.leetcode;
 public class T0674_longest_continuous_increasing_subsequence {
 
     public int findLengthOfLCIS(int[] nums) {
+        
         return 0;
     }
 }
