@@ -14,7 +14,7 @@ public class T0674_longest_continuous_increasing_subsequence {
                 start = i;
             }
             ans = Math.max(ans, i - start + 1);
-            
+
         }
         return ans;
     }
