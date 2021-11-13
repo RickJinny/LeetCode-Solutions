@@ -35,6 +35,13 @@ package com.rickjinny.leetcode;
 public class T0693_binary_number_with_alternating_bits {
 
     public boolean hasAlternatingBits(int n) {
-        return false;
+        while (n > 0) {
+            int temp = n % 2;
+            n = n / 2;
+            if (temp == n % 2) {
+                return false;
+            }
+        }
+        return true;
     }
 }
