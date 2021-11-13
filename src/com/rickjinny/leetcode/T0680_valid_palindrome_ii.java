@@ -22,7 +22,7 @@ package com.rickjinny.leetcode;
  * ② s 由小写英文字母组成
  *
  */
-public class T680_valid_palindrome_ii {
+public class T0680_valid_palindrome_ii {
 
     //记录删除的字符次数
     int del = 0;
