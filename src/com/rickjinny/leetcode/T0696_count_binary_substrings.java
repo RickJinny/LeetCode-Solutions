@@ -24,6 +24,7 @@ package com.rickjinny.leetcode;
 public class T0696_count_binary_substrings {
 
     public int countBinarySubstrings(String s) {
+        System.out.println("haha");
         return 0;
     }
 
