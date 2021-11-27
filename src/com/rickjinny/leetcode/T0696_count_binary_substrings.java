@@ -24,8 +24,20 @@ package com.rickjinny.leetcode;
 public class T0696_count_binary_substrings {
 
     public int countBinarySubstrings(String s) {
-        System.out.println("haha");
-        return 0;
+        int ptr = 0;
+        int n = s.length();
+        int last = 0;
+        int ans = 0;
+        while (ptr < n) {
+            char c = s.charAt(ptr);
+            int count = 0;
+            while (ptr < n && s.charAt(ptr) == c) {
+                ++ptr;
+                ++count;
+            }
+            ans += Math.min(count, last);
+            last = count;
+        }
+        return ans;
     }
-
 }
