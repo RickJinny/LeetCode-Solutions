@@ -1,5 +1,8 @@
 package com.rickjinny.leetcode;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 697、数组的度
  * 给定一个非空且只包含非负数的整数数值 nums , 数组的度的定义是指数组里任一元素出现频数的最大值。
@@ -26,6 +29,30 @@ package com.rickjinny.leetcode;
 public class T0697_degree_of_an_array {
 
     public int findShortestSubArray(int[] nums) {
-        return 0;
+        Map<Integer, int[]> map = new HashMap<>();
+        int length = nums.length;
+        for (int i = 0; i < length; i++) {
+            if (map.containsKey(nums[i])) {
+                map.get(nums[i])[0]++;
+                map.get(nums[i])[2]++;
+            } else {
+                map.put(nums[i], new int[]{1, i, i});
+            }
+        }
+
+        int maxNum = 0;
+        int minLen = 0;
+        for (Map.Entry<Integer, int[]> entry : map.entrySet()) {
+            int[] arr = entry.getValue();
+            if (maxNum < arr[0]) {
+                maxNum = arr[0];
+                minLen = arr[2] - arr[1] + 1;
+            } else if (maxNum == arr[0]) {
+                if (minLen > arr[2] - arr[1] + 1) {
+                    minLen = arr[2] - arr[1] + 1;
+                }
+            }
+        }
+        return minLen;
     }
 }
