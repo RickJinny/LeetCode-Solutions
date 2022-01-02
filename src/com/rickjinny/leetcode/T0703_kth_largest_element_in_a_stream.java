@@ -1,5 +1,7 @@
 package com.rickjinny.leetcode;
 
+import java.util.PriorityQueue;
+
 /**
  * 703、数据流中的第 k 大元素
  * 设计一个找到 数据流 中，第 k 大元素的类 (class)。注意是排序后的第 k 大元素，不是第 k 个不同的元素。
@@ -28,11 +30,24 @@ package com.rickjinny.leetcode;
  */
 public class T0703_kth_largest_element_in_a_stream {
 
-    public T0703_kth_largest_element_in_a_stream(int k, int[] nums) {
+    private PriorityQueue<Integer> priorityQueue;
 
+    private int k;
+
+    public T0703_kth_largest_element_in_a_stream(int k, int[] nums) {
+        this.k = k;
+        priorityQueue = new PriorityQueue<>();
+        for (int num : nums) {
+            add(num);
+        }
     }
 
     public int add(int val) {
-        return 0;
+        priorityQueue.offer(val);
+        if (priorityQueue.size() > k) {
+            priorityQueue.poll();
+        }
+        return priorityQueue.peek();
     }
+
 }
