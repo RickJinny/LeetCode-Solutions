@@ -25,8 +25,11 @@ import java.util.Map;
  */
 public class T0704_binary_search {
 
-    public static int search(int[] nums, int target) {
-        Map<Integer, Integer> map = new HashMap<>();
+    /**
+     * 方法一
+     */
+    public static int search01(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>(8);
         for (int i = 0; i < nums.length; i++) {
             map.put(nums[i], i);
         }
@@ -38,11 +41,36 @@ public class T0704_binary_search {
         return result;
     }
 
+    /**
+     * 方法二
+     */
+    public static int search02(int[] nums, int target) {
+        return getBack(nums, 0, nums.length - 1, target);
+    }
+
+    public static int getBack(int[] nums, int left, int right, int key) {
+        if (left > right) {
+            return -1;
+        }
+
+        int mid = (left + right) / 2;
+        if (nums[mid] == key) {
+            return mid;
+        } else if (nums[mid] > key) {
+            return getBack(nums, left, mid - 1, key);
+        } else {
+            return getBack(nums, mid + 1, right, key);
+        }
+    }
+
     public static void main(String[] args) {
         int[] nums = {-1, 0, 3, 5, 9, 12};
         int target = 9;
-        int result = search(nums, target);
-        System.out.println(result);
+        int result01 = search01(nums, target);
+        System.out.println("方法一: " + result01);
+
+        int result02 = search02(nums, target);
+        System.out.println("方法二: " + result02);
     }
 
 }
