@@ -26,7 +26,7 @@ public class T0706_design_hashmap {
     }
 
     public void remove(int key) {
-        
+
     }
 
 }
