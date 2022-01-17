@@ -29,5 +29,4 @@ public class T0717_1_bit_and_2_bit_characters {
         }
         return i == bits.length - 1;
     }
-
 }
