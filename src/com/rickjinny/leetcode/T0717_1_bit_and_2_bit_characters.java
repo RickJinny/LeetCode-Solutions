@@ -23,7 +23,11 @@ package com.rickjinny.leetcode;
 public class T0717_1_bit_and_2_bit_characters {
 
     public boolean isOneBitCharacter(int[] bits) {
-        return false;
+        int i = 0;
+        while (i < bits.length - 1) {
+            i += bits[i] + 1;
+        }
+        return i == bits.length - 1;
     }
 
 }
