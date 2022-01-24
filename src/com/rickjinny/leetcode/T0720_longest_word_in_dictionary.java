@@ -1,5 +1,8 @@
 package com.rickjinny.leetcode;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * 720、词典中最长的单词
  * 给出一个字符串数组 words 组成的一本英语词典。从中找出最长的一个单词，该单词是由 words 词典中其他单词
@@ -20,7 +23,27 @@ package com.rickjinny.leetcode;
 public class T0720_longest_word_in_dictionary {
 
     public String longestWord(String[] words) {
-        return "";
-    }
+        String ans = "";
+        Set<String> wordSet = new HashSet<>();
+        for (String word : words) {
+            wordSet.add(word);
+        }
 
+        for (String word : words) {
+            if (word.length() > ans.length() || word.length() == ans.length() && word.compareTo(ans) < 0) {
+                boolean good = true;
+                for (int k = 1; k < word.length(); ++k) {
+                    if (!wordSet.contains(word.substring(0, k))) {
+                        good = false;
+                        break;
+                    }
+                }
+
+                if (good) {
+                    ans = word;
+                }
+            }
+        }
+        return ans;
+    }
 }
