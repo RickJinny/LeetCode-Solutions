@@ -1,5 +1,6 @@
 package com.rickjinny.leetcode;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,6 +20,22 @@ import java.util.List;
 public class T0728_self_dividing_numbers {
 
     public List<Integer> selfDividingNumbers(int left, int right) {
-        return null;
+        List<Integer> ans = new ArrayList<>();
+        for (int n = left; n <= right; ++n) {
+            if (selfDividing(n)) {
+                ans.add(n);
+            }
+        }
+        return ans;
     }
+    
+    private boolean selfDividing(int n) {
+        for (char c : String.valueOf(n).toCharArray()) {
+            if (c == '0' || (n % (c - '0') > 0)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 }
