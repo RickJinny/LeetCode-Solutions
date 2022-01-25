@@ -1,5 +1,7 @@
 package com.rickjinny.leetcode;
 
+import java.util.Arrays;
+
 /**
  * 724、寻找数组的中心下标
  * 给你一个整数数组 nums, 请计算数组的 中心下标。
@@ -34,10 +36,15 @@ package com.rickjinny.leetcode;
 public class T0724_find_pivot_index {
 
     public int pivotIndex(int[] nums) {
-        
-
-
-
-        return 0;
+        int total = Arrays.stream(nums).sum();
+        int sum = 0;
+        for (int i = 0; i < nums.length; ++i) {
+            if (2 * sum + nums[i] == total) {
+                return i;
+            }
+            sum += nums[i];
+        }
+        return -1;
     }
+
 }
