@@ -43,7 +43,20 @@ package com.rickjinny.leetcode;
 public class T0744_find_smallest_letter_greater_than_target {
 
     public char nextGreatestLetter(char[] letters, char target) {
-        return 'a';
+        boolean[] seen = new boolean[26];
+        for (char ch : letters) {
+            seen[ch - 'a'] = true;
+        }
+
+        while (true) {
+            target++;
+            if (target > 'z') {
+                target = 'a';
+            }
+            if (seen[target - 'a']) {
+                return target;
+            }
+        }
     }
 
 }
