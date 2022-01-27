@@ -1,5 +1,8 @@
 package com.rickjinny.leetcode;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * 733、图像渲染
  * 有一幅以二维整数数组表示的图画，每一个整数表示该图画的像素值大小，数值在 0 到 65535 之间。
@@ -26,8 +29,35 @@ package com.rickjinny.leetcode;
  */
 public class T0733_flood_fill {
 
+    int[] dx = {1, 0, 0, -1};
+    int[] dy = {0, 1, -1, 0};
+
     public int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
-        return null;
+        int currColor = image[sr][sc];
+        if (currColor == newColor) {
+            return image;
+        }
+
+        int n = image.length;
+        int m = image[0].length;
+
+        Queue<int[]> queue = new LinkedList<>();
+        queue.offer(new int[]{sr, sc});
+        image[sr][sc] = newColor;
+        while (!queue.isEmpty()) {
+            int[] cell = queue.poll();
+            int x = cell[0];
+            int y = cell[1];
+            for (int i = 0; i < 4; i++) {
+                int mx = x + dx[i];
+                int my = y + dy[i];
+                if (mx >= 0 && mx < n && my < m && image[mx][my] == currColor) {
+                    queue.offer(new int[]{mx, my});
+                    image[mx][my] = newColor;
+                }
+            }
+        }
+        return image;
     }
     
 }
