@@ -29,6 +29,9 @@ package com.rickjinny.leetcode;
 public class T0747_largest_number_at_least_twice_of_others {
 
     public int domainIndex(int[] nums) {
+
+
+
         return 0;
     }
 
