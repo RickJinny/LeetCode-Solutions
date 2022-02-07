@@ -29,10 +29,23 @@ package com.rickjinny.leetcode;
 public class T0747_largest_number_at_least_twice_of_others {
 
     public int domainIndex(int[] nums) {
+        int len = nums.length;
+        if (len == 1) {
+            return 0;
+        }
 
+        int a = -1;
+        int b = 0;
+        for (int i = 0; i < len; i++) {
+            if (nums[i] > nums[b]) {
+                a = b;
+                b = i;
+            } else if (a == -1 || nums[i] > nums[a]) {
+                a = i;
+            }
+        }
 
-
-        return 0;
+        return nums[b] >= nums[a] * 2 ? b : -1;
     }
 
 }
