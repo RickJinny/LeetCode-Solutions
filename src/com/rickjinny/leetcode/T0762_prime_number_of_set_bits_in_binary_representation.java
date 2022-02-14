@@ -28,12 +28,22 @@ package com.rickjinny.leetcode;
  * 注意:
  * (1)、L, R 是 L <= R 且在 [1, 10^6] 中的整数。
  * (2)、R - L 的最大值为 10000。
- * 
+ *
  */
 public class T0762_prime_number_of_set_bits_in_binary_representation {
 
     public int countPrimeSetBits(int left, int right) {
-        return 0;
+        int ans = 0;
+        for (int i = left; i <= right; ++i) {
+            if (isSmallPrime(Integer.bitCount(i))) {
+                ans++;
+            }
+        }
+        return ans;
+    }
+
+    private boolean isSmallPrime(int n) {
+        return n == 2 || n == 3 || n == 5 || n == 7 || n == 11 || n == 13 || n == 17 || n == 19;
     }
 
 }
