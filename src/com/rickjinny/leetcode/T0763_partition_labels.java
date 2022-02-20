@@ -18,7 +18,6 @@ import java.util.List;
  * 提示:
  * (1)、S 的长度在 [1, 500] 之间。
  * (2)、S 只包含小写字母 'a' 到 'z'。
- *
  */
 public class T0763_partition_labels {
 
