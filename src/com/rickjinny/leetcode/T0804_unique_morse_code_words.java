@@ -21,5 +21,9 @@ public class T0804_unique_morse_code_words {
         }
         return treeSet.size();
     }
-    
+
+    public static void main(String[] args) {
+
+    }
+
 }
