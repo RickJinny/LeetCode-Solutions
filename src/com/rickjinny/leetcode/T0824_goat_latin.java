@@ -1,5 +1,8 @@
 package com.rickjinny.leetcode;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * 824、山羊拉丁文
  *
@@ -21,6 +24,48 @@ package com.rickjinny.leetcode;
 public class T0824_goat_latin {
 
     public String toGoatLatin(String sentence) {
-        return "";
+        Set<Character> vowels = new HashSet<Character>() {{
+            add('a');
+            add('e');
+            add('i');
+            add('o');
+            add('u');
+            add('A');
+            add('E');
+            add('I');
+            add('O');
+            add('U');
+        }};
+
+        int n = sentence.length();
+        int i = 0, cnt = 1;
+        StringBuffer buffer = new StringBuffer();
+        while (i < n) {
+            int j = i;
+            while (j < n && sentence.charAt(j) != ' ') {
+                ++j;
+            }
+
+            ++cnt;
+            if (cnt != 2) {
+                buffer.append(' ');
+            }
+
+            if (vowels.contains(sentence.charAt(i))) {
+                buffer.append(sentence.substring(i, j));
+            } else {
+                buffer.append(sentence.substring(i + 1, j));
+                buffer.append(sentence.charAt(i));
+            }
+
+            buffer.append('m');
+            for (int k = 0; k < cnt; ++k) {
+                buffer.append('a');
+            }
+
+            i = j + 1;
+        }
+
+        return buffer.toString();
     }
 }
