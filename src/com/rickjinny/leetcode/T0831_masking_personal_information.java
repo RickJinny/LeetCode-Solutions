@@ -72,7 +72,8 @@ package com.rickjinny.leetcode;
  */
 public class T0831_masking_personal_information {
 
-
-
+    public String maskPII(String s) {
+        return null;
+    }
 
 }
