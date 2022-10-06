@@ -73,7 +73,24 @@ package com.rickjinny.leetcode;
 public class T0831_masking_personal_information {
 
     public String maskPII(String s) {
-        return null;
+        int atIndex = s.indexOf("@");
+        if (atIndex >= 0) {
+            // 邮箱
+            return (s.substring(0, 1) + "*****" + s.substring(atIndex - 1)).toLowerCase();
+        } else {
+            // 电话
+            String digits = s.replaceAll("\\D+", "");
+            String local = "***_***_" + digits.substring(digits.length() - 4);
+            if (digits.length() == 10) {
+                return local;
+            }
+
+            String ans = "+";
+            for (int i = 0; i < digits.length() - 10; ++i) {
+                ans += "*";
+            }
+            return ans + "-" + local;
+        }
     }
 
 }
