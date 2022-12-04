@@ -6,7 +6,7 @@ package com.rickjinny.leetcode_multithread;
  */
 public class T1114_print_in_order {
 
-    class Foo {
+    static class Foo {
 
         public Foo() {
 
