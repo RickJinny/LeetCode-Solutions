@@ -16,8 +16,8 @@ public class T1115_print_foobar_alternately_Thread_yield {
         this.n = n;
     }
 
-    public void foo(Runnable printFoo) {
-        for (int i = 0; i < n; i++) {
+    public void foo(Runnable printFoo) throws InterruptedException {
+        for (int i = 0; i < n; ) {
             if (fooExec) {
                 printFoo.run();
                 fooExec = false;
@@ -28,8 +28,8 @@ public class T1115_print_foobar_alternately_Thread_yield {
         }
     }
 
-    public void bar(Runnable printBar) {
-        for (int i = 0; i < n; i++) {
+    public void bar(Runnable printBar) throws InterruptedException {
+        for (int i = 0; i < n; ) {
             if (!fooExec) {
                 printBar.run();
                 fooExec = true;
@@ -41,7 +41,7 @@ public class T1115_print_foobar_alternately_Thread_yield {
     }
 
     public static void main(String[] args) {
-        T1115_print_foobar_alternately_Semaphore foobar = new T1115_print_foobar_alternately_Semaphore(2);
+        T1115_print_foobar_alternately_Thread_yield foobar = new T1115_print_foobar_alternately_Thread_yield(2);
 
         Runnable runnable1 = () -> {
             try {
