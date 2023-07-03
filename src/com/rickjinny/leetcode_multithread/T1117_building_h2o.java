@@ -32,6 +32,34 @@ package com.rickjinny.leetcode_multithread;
  */
 public class T1117_building_h2o {
 
-    
+    private volatile int state = 0;
+
+    private Object obj = new Object();
+
+    public T1117_building_h2o() {
+
+    }
+
+    public void hydrogen(Runnable releaseHydrogen) throws InterruptedException {
+        synchronized (obj) {
+            while (state == 2) {
+                obj.wait();
+            }
+            state++;
+            releaseHydrogen.run();
+            obj.notifyAll();
+        }
+    }
+
+    public void oxygen(Runnable releaseOxygen) throws InterruptedException {
+        synchronized (obj) {
+            while (state != 2) {
+                obj.wait();
+            }
+            state = 0;
+            releaseOxygen.run();
+            obj.notifyAll();
+        }
+    }
 
 }
